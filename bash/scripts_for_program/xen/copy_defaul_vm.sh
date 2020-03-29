@@ -52,15 +52,15 @@ EXIT_CODE_TEMPLATE_CONF_DOESNT_EXIST=114
 
 #################### Function ####################
 function CheckErrorCode {
-        # $1 - Error code
-        # $2 - echo text
-        # $3 - Exit with ERROR CODE
-        if [[ $1 -ne 0 ]]; then
-                echo "$2"
-                if [[ -n $3 ]]; then
-                        exit "$3"
-                fi
-        fi
+  # $1 - Error code
+  # $2 - echo text
+  # $3 - Exit with ERROR CODE
+  if [[ $1 -ne 0 ]]; then
+    echo "$2"
+    if [[ -n $3 ]]; then
+      exit "$3"
+    fi
+  fi
 }
 
 
@@ -69,13 +69,13 @@ function CheckErrorCode {
 ((STEP++))
 echo "===== $STEP - check start file  ====="
 if ! xl list ${VM_TEMPLATE_NAME} > /dev/null 2>&1; then
-        echo "template vm - ${VM_TEMPLATE_NAME} doesn't run. Exit."
-        exit  $EXIT_CODE_TEMPLATE_VM_DOESNT_RUN
+  echo "template vm - ${VM_TEMPLATE_NAME} doesn't run. Exit."
+  exit  $EXIT_CODE_TEMPLATE_VM_DOESNT_RUN
 fi
 
 if [[ ! -e ${VM_TEMPLATE_CONF} ]]; then
-        echo "VM Template conf desn't exist - ${VM_TEMPLATE_CONF}. Exit."
-        exit $EXIT_CODE_TEMPLATE_CONF_DOESNT_EXIST
+  echo "VM Template conf desn't exist - ${VM_TEMPLATE_CONF}. Exit."
+  exit $EXIT_CODE_TEMPLATE_CONF_DOESNT_EXIST
 fi
 
 ((STEP++))

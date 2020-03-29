@@ -15,10 +15,10 @@ if [[ $SERVICE == "asterisk" ]] ; then
 fi
 
 if [[ $PERMISSION == "TRUE" ]]; then
-        "/etc/init.d/$SERVICE" "$COMMAND"
+  "/etc/init.d/$SERVICE" "$COMMAND"
 else
-        echo "Wrong service. Please run:"
-        echo "sudo /usr/local/bin/manage_service.sh <COMMAND> <SERVICE>"
-        echo "<COMMAND> is start, stop, restart or status"
-        echo "<SERVICE> is apache2"
+  echo "Wrong service. Please run:"
+  echo "sudo /usr/local/bin/manage_service.sh <COMMAND> <SERVICE>"
+  echo "<COMMAND> is start, stop, restart or status"
+  echo "<SERVICE> is apache2"
 fi

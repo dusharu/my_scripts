@@ -46,8 +46,8 @@ fi
 
 # check dir for delete not /
 if [[ ! $LOG_DIR =~ ^/var/log/ ]]; then
-        echo "LOG_DIR not start from /var/log/" | SendEmail
-        exit $EXIT_INVALID_DIR
+  echo "LOG_DIR not start from /var/log/" | SendEmail
+  exit $EXIT_INVALID_DIR
 fi
 
 ##### gzip Yesterday files

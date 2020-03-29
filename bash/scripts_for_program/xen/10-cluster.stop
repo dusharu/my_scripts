@@ -14,13 +14,13 @@ echo "=========== STOP by $0 =========="
 
 ########## if secondary node - exit
 if [[ $(drbdadm role all |grep  -c -e "^Primary") -eq $RES_COUNT ]]; then
-        echo "stop DRBD Primary"
+  echo "stop DRBD Primary"
 else
-        echo "stop DRBD Secondary"
-        $DRBDADM down all
-        echo "exit"
-        echo "=========== Done $0 =========="
-        exit 0
+  echo "stop DRBD Secondary"
+  $DRBDADM down all
+  echo "exit"
+  echo "=========== Done $0 =========="
+  exit 0
 fi
 ##########
 

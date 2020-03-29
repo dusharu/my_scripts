@@ -17,12 +17,12 @@ $DRBDADM up all
 $DRBDADM sh-b-pri all
 ########## if secondary node - exit
 if [[ $(drbdadm role all |grep  -c -e "^Primary") -eq $RES_COUNT ]]; then
-        echo "start DRBD Primary"
+  echo "start DRBD Primary"
 else
-        echo "start DRBD Secondary"
-        echo "exit"
-        echo "===== Start DRBD.....Ok"
-        exit 0
+  echo "start DRBD Secondary"
+  echo "exit"
+  echo "===== Start DRBD.....Ok"
+  exit 0
 fi
 ##########
 echo "===== Start DRBD.....Ok"
@@ -38,7 +38,7 @@ echo "===== mount /etc/xen/config_xen/.....Ok"
 
 
 for VM in /etc/xen/config_xen/s_* ; do
-        $XL create "$VM"
+  $XL create "$VM"
 done
 
 echo "===== Start Xen....Ok"
