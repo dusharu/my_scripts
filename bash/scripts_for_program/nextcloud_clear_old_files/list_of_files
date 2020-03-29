@@ -1,0 +1,148 @@
+- core
+	- EXTRA_FILE
+		- core/l10n/ar.js
+		- core/l10n/ar.json
+		- nextcloud.sql.bz2
+		- settings/package-lock.json
+		- settings/package.json
+		- settings/webpack.dev.js
+		- settings/Makefile
+		- settings/README.md
+		- settings/src/views/Users.vue
+		- settings/src/views/Apps.vue
+		- settings/src/App.vue
+		- settings/src/components/appNavigation/navigationItem.vue
+		- settings/src/components/appNavigation.vue
+		- settings/src/components/prefixMixin.vue
+		- settings/src/components/popoverMenu.vue
+		- settings/src/components/appManagement.vue
+		- settings/src/components/userList/userRow.vue
+		- settings/src/components/svgFilterMixin.vue
+		- settings/src/components/appList/appItem.vue
+		- settings/src/components/appList/appScore.vue
+		- settings/src/components/popoverMenu/popoverItem.vue
+		- settings/src/components/appDetails.vue
+		- settings/src/components/appList.vue
+		- settings/src/components/userList.vue
+		- settings/src/.jshintrc
+		- settings/src/store/settings.js
+		- settings/src/store/oc.js
+		- settings/src/store/users.js
+		- settings/src/store/apps.js
+		- settings/src/store/index.js
+		- settings/src/store/api.js
+		- settings/src/main.js
+		- settings/src/router.js
+		- settings/.editorconfig
+		- settings/webpack.prod.js
+		- settings/.babelrc
+		- settings/.gitignore
+		- settings/webpack.common.js
+- serverinfo
+	- EXTRA_FILE
+		- .tx/config
+		- .github/issue_template.md
+		- .github/contributing.md
+- survey_client
+	- EXTRA_FILE
+		- .tx/config
+- logreader
+	- EXTRA_FILE
+		- package-lock.json
+		- package.json
+		- .tx/config
+		- .github/issue_template.md
+		- .github/contributing.md
+		- Makefile
+		- .babelrc
+- notifications
+	- EXTRA_FILE
+		- package-lock.json
+		- package.json
+		- .tx/config
+		- .github/issue_template.md
+		- .github/contributing.md
+		- Makefile
+		- src/App.vue
+		- src/components/notification.vue
+		- src/components/action.vue
+		- src/webpack.dev.js
+		- src/richObjectStringParser.js
+		- src/webpack.prod.js
+		- src/init.js
+		- src/webpack.common.js
+- password_policy
+	- EXTRA_FILE
+		- .tx/config
+		- .github/issue_template.md
+		- .github/contributing.md
+- nextcloud_announcements
+	- EXTRA_FILE
+		- .tx/config
+		- .github/issue_template.md
+		- .github/contributing.md
+- updatenotification
+	- EXTRA_FILE
+		- package-lock.json
+		- package.json
+		- webpack.dev.js
+		- Makefile
+		- src/components/popoverMenu.vue
+		- src/components/root.vue
+		- src/components/popoverMenu/popoverItem.vue
+		- src/init.js
+		- webpack.prod.js
+		- webpack.common.js
+- files_texteditor
+	- EXTRA_FILE
+		- .tx/config
+		- .github/issue_template.md
+		- .github/contributing.md
+		- l10n/bg_BG.json
+		- l10n/bg_BG.js
+- activity
+	- EXTRA_FILE
+		- .tx/config
+- files_pdfviewer
+	- EXTRA_FILE
+		- .github/issue_template.md
+		- .github/contributing.md
+		- Makefile
+- gallery
+	- EXTRA_FILE
+		- .tx/config
+		- .github/issue_template.md
+		- .github/pull_request_template.md
+- support
+	- EXTRA_FILE
+		- .tx/config
+- firstrunwizard
+	- EXTRA_FILE
+		- .tx/config
+		- .github/issue_template.md
+		- .github/contributing.md
+- accessibility
+	- EXTRA_FILE
+		- package-lock.json
+		- package.json
+		- .eslintrc.js
+		- webpack.dev.js
+		- Makefile
+		- src/App.vue
+		- src/components/itemPreview.vue
+		- src/main.js
+		- .editorconfig
+		- webpack.prod.js
+		- .babelrc
+		- webpack.common.js
+- oauth2
+	- EXTRA_FILE
+		- package-lock.json
+		- package.json
+		- webpack.dev.js
+		- Makefile
+		- src/App.vue
+		- src/components/OAuthItem.vue
+		- src/main.js
+		- webpack.prod.js
+		- webpack.common.js

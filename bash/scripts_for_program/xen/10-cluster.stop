@@ -1,0 +1,49 @@
+#!/bin/bash
+################################################################################
+#                                                                              #
+#                       Stop Xen Virtual Machines                              #
+#                                                                              #
+#                       mailto:dusharu17@gmail.com                             #
+#                                                                   2015.07.23 #
+################################################################################
+DRBDADM="/sbin/drbdadm"
+XL="/usr/sbin/xl"
+RES_COUNT="$(find /etc/drbd.d/ -name \*.res -print |wc -l)"
+
+echo "=========== STOP by $0 =========="
+
+########## if secondary node - exit
+if [[ $(drbdadm role all |grep  -c -e "^Primary") -eq $RES_COUNT ]]; then
+        echo "stop DRBD Primary"
+else
+        echo "stop DRBD Secondary"
+        $DRBDADM down all
+        echo "exit"
+        echo "=========== Done $0 =========="
+        exit 0
+fi
+##########
+
+echo "===== Stop Xen"
+#$XL destroy cp
+$XL shutdown -a -w
+
+echo "===== umount /etc/xen/config_xen/"
+umount /etc/xen/config_xen/
+echo "===== umount /etc/xen/config_xen/.....Ok"
+echo "===== Stop Xen....Ok"
+
+echo "===== Disable LVM"
+vgchange -an /dev/vg_data
+vgchange -an /dev/vg_ssd
+echo "===== Disable LVM.....Ok"
+
+echo "===== Stop DRBD"
+$DRBDADM down all
+echo "===== Stop DRBD.....Ok"
+
+echo "===== Delete LVM info from cache"
+pvscan --cache
+echo "===== Delete LVM info from cache.....Ok"
+
+echo "=========== Done $0 =========="

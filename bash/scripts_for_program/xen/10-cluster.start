@@ -1,0 +1,45 @@
+#!/bin/bash
+################################################################################
+#                                                                              #
+#                       Start Xen Virtual Machines                             #
+#                                                                              #
+#                       mailto:dusharu17@gmail.com                             #
+#                                                                   2015.07.23 #
+################################################################################
+DRBDADM="/sbin/drbdadm"
+XL="/usr/sbin/xl"
+RES_COUNT="$(find /etc/drbd.d/ -name \*.res -print |wc -l)"
+
+echo "=========== START by $0 =========="
+echo "===== Start DRBD"
+$DRBDADM up all
+#if you want set this node primary then change "become-primary-on <node_name>" in /etc/drbd.d/global_common.conf
+$DRBDADM sh-b-pri all
+########## if secondary node - exit
+if [[ $(drbdadm role all |grep  -c -e "^Primary") -eq $RES_COUNT ]]; then
+        echo "start DRBD Primary"
+else
+        echo "start DRBD Secondary"
+        echo "exit"
+        echo "===== Start DRBD.....Ok"
+        exit 0
+fi
+##########
+echo "===== Start DRBD.....Ok"
+
+echo "===== rescan LVM"
+pvscan --cache --activate ay
+echo "===== Start LVM.....Ok"
+
+echo "===== Start Xen"
+echo "===== mount /etc/xen/config_xen/"
+mount /dev/vg_data/xen_conf /etc/xen/config_xen/
+echo "===== mount /etc/xen/config_xen/.....Ok"
+
+
+for VM in /etc/xen/config_xen/s_* ; do
+        $XL create "$VM"
+done
+
+echo "===== Start Xen....Ok"
+echo "=========== Done $0 =========="
