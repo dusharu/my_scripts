@@ -39,7 +39,7 @@ ERROR_CANT_GET_IP_DB_MASTER=108
 ERROR_RUN_ON_MASTER=200
 ######################### FUNCTION #########################
 function SendEmail {
-  EMAIL="<amdmin_email>"
+  EMAIL="<admin_email>"
   BOT_EMAIL="<bot_email>"
   echo -e "$@" | mail -a "From: $BOT_EMAIL" -s "$(hostname):$0" $EMAIL
 }
