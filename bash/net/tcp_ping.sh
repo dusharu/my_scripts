@@ -5,6 +5,8 @@
 #                       mailto:dusharu17@gmail.com                             #
 #                                                                   2020.10.10 #
 ################################################################################
+# source: https://github.com/dusharu/my_scripts/blob/master/bash/net/tcp_ping.sh
+
 export PATH="$PATH:/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin"
 
 #################### VAR
