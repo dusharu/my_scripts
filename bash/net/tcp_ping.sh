@@ -46,7 +46,7 @@ function help (){
 
 #################### MAIN
 ##### Get VARS
-while [[ $# -gt 0 ]]; do
+while [[ $# -gt 2 ]]; do
   case $1 in
     -h) help; exit "$EXIT_HELP" ;;
     --help) help; exit "$EXIT_HELP" ;;
@@ -61,21 +61,18 @@ while [[ $# -gt 0 ]]; do
     -l) shift; LOG="$1" ;;
     --log) shift; LOG="$1" ;;
     *)
-      if [[ $HOST == "" ]]; then
-        HOST="$1"
-      elif [[ $PORT = "" ]]; then
-        PORT="$1"
-      else
-        echo "ERROR. Unexpect parametr: $1"
-        echo
-        help
-        exit "$EXIT_UNEXPECTED_PARAMETR"
-      fi
+      echo "ERROR. Unexpect parametr: $1"
+      echo
+      help
+      exit "$EXIT_UNEXPECTED_PARAMETR"
     ;;
   esac
   shift
 done
 
+HOST="$1"
+shift
+PORT="$1"
 
 ##### Check VARS
 if [[ $HOST =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
